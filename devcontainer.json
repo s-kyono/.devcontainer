@@ -1,0 +1,23 @@
+{
+  "name": ".devcontainer",
+  "dockerComposeFile": ["./docker-compose.yml"],
+  "service": "devcontainer",
+  "customizations": {
+    "vscode": {
+      "extensions": [],
+      "settings": {
+        "editor.tabSize": 2,
+        "files.eol": "\n",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {}
+      }
+    }
+  },
+  "workspaceFolder": "/srv",
+  "remoteUser": "dev-user",
+  "postStartCommand": "/init.sh",
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  }
+}

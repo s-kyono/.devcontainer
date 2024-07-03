@@ -1,0 +1,24 @@
+services:
+  devcontainer:
+    container_name: .devcontainer
+    build: 
+      context: .
+      args:
+        - GITHUB_EMAIL=${GITHUB_EMAIL}
+        - GITHUB_ACCOUNT=${GITHUB_ACCOUNT}
+        - GITHUB_ACCESS_TOKEN=${GITHUB_ACCESS_TOKEN}
+    tty: true
+    volumes:
+      - .devcontainer:/srv
+      - ../.devcontainer/:/srv/.devcontainer
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - .devcontainer_nw
+
+volumes:
+  .devcontainer:
+    external: true
+
+networks:
+  .devcontainer_nw:
+    external: true
